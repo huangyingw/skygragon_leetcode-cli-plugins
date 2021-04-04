@@ -1,0 +1,13 @@
+diff --git a/plugins/cookie.chrome.js b/plugins/cookie.chrome.js
+index e2d4278..8992644 100644
+--- ./plugins/cookie.chrome.js
++++ ./plugins/cookie.chrome.js
+@@ -102,7 +102,7 @@ Chrome.decodeCookie = function(cookie, cb) {
+   crypto.pbkdf2(my.password, 'saltysalt', my.iterations, 16, 'sha1', function(e, key) {
+     if (e) return cb(e);
+ 
+-    var iv = new Buffer(' '.repeat(16));
++    var iv = new Buffer.alloc(' '.repeat(16));
+     var decipher = crypto.createDecipheriv('aes-128-cbc', key, iv);
+     decipher.setAutoPadding(false);
+ 
