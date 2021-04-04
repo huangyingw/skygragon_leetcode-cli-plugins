@@ -102,7 +102,7 @@ Chrome.decodeCookie = function(cookie, cb) {
   crypto.pbkdf2(my.password, 'saltysalt', my.iterations, 16, 'sha1', function(e, key) {
     if (e) return cb(e);
      
-    var iv = new Buffer.alloc(16);
+    var iv = new Buffer.alloc(16, ' ');
     var decipher = crypto.createDecipheriv('aes-128-cbc', key, iv);
     decipher.setAutoPadding(false);
 
