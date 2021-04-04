@@ -1,5 +1,5 @@
 diff --git a/plugins/cookie.chrome.js b/plugins/cookie.chrome.js
-index e2d4278..41210f6 100644
+index e2d4278..9875371 100644
 --- ./plugins/cookie.chrome.js
 +++ ./plugins/cookie.chrome.js
 @@ -102,7 +102,7 @@ Chrome.decodeCookie = function(cookie, cb) {
@@ -7,7 +7,7 @@ index e2d4278..41210f6 100644
      if (e) return cb(e);
       
 -    var iv = new Buffer(' '.repeat(16));
-+    var iv = new Buffer.alloc(16);
++    var iv = new Buffer.alloc(16, ' ');
      var decipher = crypto.createDecipheriv('aes-128-cbc', key, iv);
      decipher.setAutoPadding(false);
  
